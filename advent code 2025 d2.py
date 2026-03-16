@@ -8,7 +8,7 @@
 #(inefficiencies from bandaiding what ended up P2's solution show up really hard)
 
 def main():
-    codes = read_file(r"C:\Users\dashe\Local Documents\Personal Projects\advent_code\adventcode_d2.txt")
+    codes = read_file()
     total_sum_p1 = 0
     for line in codes:
         total_sum_p1 += iterate_each_num_p1(line)
@@ -21,6 +21,7 @@ def main():
 
 
 def read_file(filename):
+    filename = input("Enter the path to the file: ")
     file = open(filename, "r")
     file_content = file.read().split(",")
     file.close()
