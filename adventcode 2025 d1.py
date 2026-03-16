@@ -39,6 +39,8 @@ def run_equation(concurrent_val, val_to_add, password):
 # this one wasn't playing nice with doing generic modulo stuff so instead
 # i bruteforced it with an array. definitely one of the uglier ways of
 # doing it but I'll make it more beautiful another day.
+
+# 16/03/25 - simple adjustment. cut out middleman and just used a for loop.
 def part_two():
     filename = input("Input the path to the file: ")
     lines = read_file(filename)
@@ -50,17 +52,16 @@ def part_two():
     return password
 
 def run_equation_p2(concurrent_val, val_to_add, password):
-    adding_list = []
     if val_to_add < 0:
         for i in range(0, val_to_add, -1):
-            adding_list.append(-1)
+            concurrent_val -= 1
+            if concurrent_val % 100 == 0:
+                password += 1
     elif val_to_add > 0:
         for i in range(0, val_to_add):
-            adding_list.append(1)
-    for num in adding_list:
-        concurrent_val += num
-        if concurrent_val % 100 == 0:
-            password += 1
+            concurrent_val += 1
+            if concurrent_val % 100 == 0:
+                password += 1
     
 
 
