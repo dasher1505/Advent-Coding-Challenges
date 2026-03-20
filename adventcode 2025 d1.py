@@ -52,6 +52,8 @@ def part_two():
     return password
 
 def run_equation_p2(concurrent_val, val_to_add, password):
+    #instead of doing the whole number at once, we go one at a time.
+    #simple way to get around edge cases
     if val_to_add < 0:
         for i in range(0, val_to_add, -1):
             concurrent_val -= 1
